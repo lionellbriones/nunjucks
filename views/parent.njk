@@ -1,3 +1,7 @@
+{% block css %}
+<link rel="stylesheet" href="/static-files/css/app.css" />
+{% endblock %}
+
 {% block header %}
 This is the default content
 {% endblock %}
@@ -11,3 +15,7 @@ This is the default content
   This is more content
   {% endblock %}
 </section>
+
+{% for item in items %}
+{% block item %}{{ item }}{% endblock %}
+{% endfor %}

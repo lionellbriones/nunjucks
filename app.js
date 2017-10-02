@@ -11,7 +11,11 @@ nunjucks.configure('views', {
 });
 
 app.get('/template', (req, res, next) => {
-    res.render('child');
+    var items = [{ name: "foo", id: 1 }, { name: "bar", id: 2}];
+    res.render('child', {
+        title: 'NunJucks',
+        items: items
+    });
 })
 
 app.use((req, res, next) => {
