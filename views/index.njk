@@ -38,5 +38,34 @@
     {{ username }}
     {% set username = "joe" %}
     {{ username }}
+
+    <hr>
+    <h3>filter</h3>
+    {% filter title %}
+    may the force be with you
+    {% endfilter %}
+    <br>
+    {% filter replace("force", "forth") %}
+    may the force be with you
+    {% endfilter %}
+
+    <hr>
+    <h3>Call</h3>
+    {% macro add(x, y) %}
+    {{ caller() }}: {{ x + y }}
+    {% endmacro%}
+
+    {% call add(1, 2) -%}
+    The result is
+    {%- endcall %}
+
+    <hr>
+    <h3>Batch loop</h3>
+    {% set items = [1,2,3,4,5,6] %}
+    {% for item in items | batch(2) -%}
+        -{% for items in item -%}
+            {{ items }}
+        {%- endfor %}
+    {%- endfor %}
 </body>
 </html>
