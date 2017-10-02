@@ -1,3 +1,3 @@
-**NUNCHUCKS**
+**NUNJUCKS**
 
-Checking features of nunchucks
+Checking features of nunjucks
