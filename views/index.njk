@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NunJucks</title>
+</head>
+<body>
+    <h1>NunJucks</h1>
+    {{ sampleList | join(", ") }}
+    <hr>
+    <h3>Loop</h3>
+    <ul>
+    {% for item in items %}
+        <li>{{ item.title }}</li>
+    {% else %}
+        <li>This would display if the 'item' collection were empty</li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <h3>Loop list</h3>
+    {% for x, y, z in points %}
+    Point: {{ x }}, {{ y }}, {{ z }} | {{loop.last}}<br>
+    {% endfor %}
+    <hr>
+    <h3>Macro</h3>
+    {% macro field(name, value='', type='text') %}
+    <div class="field">
+    <input type="{{ type }}" name="{{ name }}"
+            value="{{ value | escape }}" />
+    </div>
+    {% endmacro %}
+    {{ field('user') }}
+    <br>
+    {{ field('pass', type='password') }}
+
+    <hr>
+    <h3>Set</h3>
+    {{ username }}
+    {% set username = "joe" %}
+    {{ username }}
+</body>
+</html>
